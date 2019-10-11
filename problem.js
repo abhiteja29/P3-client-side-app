@@ -125,8 +125,6 @@ QUnit.test("TEST first number validation", assert => {
   input.blur()
   assert.strictEqual(warning.innerHTML, 'Invalid input', `Correctly adds warning ${warning}`)
 })
-
-
 function aj() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -137,5 +135,5 @@ function aj() {
   };
   xhttp.open("GET", "ajax.txt", true);
   xhttp.send();
-
+}
 
