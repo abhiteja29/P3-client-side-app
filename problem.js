@@ -34,7 +34,6 @@ document.addEventListener('click', event => {
   if (event.target && event.target.id === 'addButton') { updateWithAdd(event) }
 });
 
-
     console.log('Declare testable functions......................')
 
     function add(x, y) { return x / y }
@@ -81,59 +80,16 @@ document.querySelector('#storage').addEventListener('click', () => {
   console.log('  Finished wiper click handler - localStorage entries removed')
 })
 
-
-QUnit.module('MAIN MODULE', {}) 
-
-QUnit.test('TEST add', assert => {
-  assert.equal(add(1, 1), 2, 'Positive integers')
-  assert.equal(add(-1, -1), -2, 'Negative integers')
-  assert.equal(add(-10, 10), 0, 'Mixed')
-})
-
-QUnit.config.autostart = false 
-
-window.addEventListener('load', () => {
-  const appURL = '../index.html'
-  const openingTag = '<main class="container mt-5 flex-fill">'
-  const closingTag = '</main>'
-  fetch(appURL, { method: 'GET' })
-    .then(response => {
-      return response.text()
-    })
-    .then(txt => {
-      const start = txt.indexOf(openingTag)
-      const end = txt.indexOf(closingTag) + closingTag.length
-      const html = txt.substring(start, end)
-      const qunitFixtureBody = document.getElementById('qunit-fixture')
-      qunitFixtureBody.innerHTML = html
-      console.info(qunitFixtureBody)
-      QUnit.start()
-    })
-    .catch(error => {
-      console.error('error:', error);
-      QUnit.start()
-    })
-})
-
-QUnit.test("TEST first number validation", assert => {
-  const input = document.querySelector('#firstNumber')
-  const warning = document.querySelector('#firstWarning')
-  input.value = -3;
-  assert.equal(input.value, -3, "Bad value assigned")
-  assert.strictEqual(input.checkValidity(), false, "Correctly fails validation")
-  input.focus()
-  input.blur()
-  assert.strictEqual(warning.innerHTML, 'Invalid input', `Correctly adds warning ${warning}`)
-})
-function aj() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("aj").innerHTML =
-      this.responseText;
-    }
-  };
-  xhttp.open("GET", "ajax.txt", true);
-  xhttp.send();
+const updateWithJoke = async (event) => {
+  document.querySelector('#jokeresult').innerHTML = ''
+  const url = 'https://api.icndb.com/jokes/random?limitTo=[nerdy]'
+  const response = await fetch(url)
+  const obj = await response.json()
+  const joke = obj.value.joke || 'No joke for you.'
+  document.querySelector('#jokeresult').innerHTML = joke
 }
+document.addEventListener('click', event => {
+  if (event.target && event.target.id === 'joke') { updateWithJoke(event) }
+})
+
 
