@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>NN-Success</title>
     <link rel="stylesheet" type="text/css" href="Css.css">
-    
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="ajaxfile.js"></script>   
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
@@ -27,8 +26,7 @@
               </button>
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <li class="active"><a href="#" style="font-size: 2em;color: rgb(30, 201, 115);">Omkar Abhiteja Badda</a></li>
-
-    
+   
     <ul class="nav nav-pills nav-fill">
       <li class="nav-item">
         <a class="nav-link" href="index.html">About Me</a>
@@ -58,27 +56,30 @@
   <div>
     <button id="addButton" class="btn btn-primary">Calculate</button>  
     <p id="result"></p> 
-
     <button id="clicker" class="btn btn-primary">Storage</button>  
     <button id="storage" class="btn btn-primary">Clear Storage</button>  
     </div>
     <section class="col-md-4">
       <div id="aj">
           <h2>AJAX</h2>
-          <button type="button" onclick="aj()">call ajax</button>
-          </div>
+          <button onclick="aj()">call ajax</button>
+          <span id="one"></span>     
+               
       </section>
-          
-  <main>          
+      <section class="col-md-4">
+        <a href="qunit.html">qUnit test</a>
+       
+    </section>
+  </div>   
+  <main>  
+     
  <br>
 <br>                 
-      </main>
-
+  </main>
       <footer>
            <p>@Abhiteja.inc</p>
      </footer>
      <script src="problem.js"></script>
      <script defer src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
-
 </body>
 </html>
